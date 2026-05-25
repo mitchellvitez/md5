@@ -68,10 +68,10 @@ pub fn md5(input: &[u8]) -> [u8; 16] {
 
 struct Round {
     aux: fn(u32, u32, u32) -> u32,
-    ksi: &'static [(usize, u32, usize)],
+    ksi: &'static [(usize, u32, usize); 16],
 }
 
-const ROUNDS: &[Round] = &[
+const ROUNDS: &[Round; 4] = &[
     Round {
         aux: aux_f,
         ksi: &[
